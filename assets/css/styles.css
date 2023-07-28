@@ -2,6 +2,14 @@
     box-sizing: border-box;
 }
 
+:root {
+    --side-of-triangle: 10px; /*equal to sum of both opposite side width*/
+    --course-item-gap: 30px;
+    --course-item-qty: 3;
+    --transition-delay: 0.2s;
+    --transition-effect: ease;
+}
+
 html {
     font-size: 62.5%;
 }
@@ -14,6 +22,7 @@ body {
 /* ==================== Common ==================== */
 .content {
     width: 1170px;
+    max-width: calc(100% - 48px);
     margin: 0 auto;
 }
 
@@ -23,6 +32,11 @@ body {
     text-align: center;
     font-size: 1.6rem;
     font-weight: 600;
+}
+
+.btn:hover {
+    transition: var(--transition-delay) var(--transition-effect);
+    /* opacity: 0.9; */
 }
 
 a {
@@ -37,19 +51,13 @@ a {
     padding-top: 26px;
     width: 100%;
     background: #fffcf4;
+    border-bottom: 2px solid #171100;
 }
 
 .navbar {
     display: flex;
     align-items: center;
     padding: 10px 0;
-}
-
-.signUp-btn {
-    margin-left: auto;
-    padding: 17px 0;
-    border-radius: 24.5px;
-    min-width: 144px;
 }
 
 .navigation {
@@ -68,4 +76,732 @@ a {
 
 .navigation-item:hover {
     text-decoration: underline;
+}
+
+.signUp-btn {
+    margin-left: auto;
+    padding: 17px 0;
+    border-radius: 24.5px;
+    min-width: 144px;
+}
+
+.signUp-btn:hover {
+    background: #ffb900;
+}
+
+/* ==================== Hero ==================== */
+.hero-wrap {
+    padding-top: 54px;
+    height: calc(100vh - 96px);
+    background: #fffcf4;
+}
+
+.hero {
+    display: flex;
+    width: 100%;
+}
+
+.hero-image {
+    position: relative;
+    flex: 1;
+}
+
+.hero-image > img {
+    margin-right: auto;
+    width: 470px;
+    height: 685px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.hero-info {
+    flex: 1;
+    padding-left: 230px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hero-info .title {
+    color: #171100;
+    font-family: Sen, sans-serif;
+    font-size: 5.8rem;
+    font-weight: 700;
+    line-height: 1.17;
+    letter-spacing: -0.02em;
+}
+
+.hero-info .desc-1 {
+    margin-top: 22px;
+    color: #5f5b53;
+    font-size: 1.8rem;
+    font-weight: 400;
+    line-height: 1.67;
+}
+
+.hero-info .cta {
+    margin-top: 38px;
+    display: flex;
+    align-items: center;
+}
+
+.hero-info .cta .btn {
+    padding: 23px 0;
+    border-radius: 32px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.07);
+    width: 180px;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #ffb900;
+    background-color: #fff;
+    transition: var(--transition-delay) var(--transition-effect);
+}
+
+.hero-info .cta .btn:hover {
+    opacity: 1;
+    color: #fff;
+    background-color: #ffb900;
+}
+
+.hero-info .watch {
+    margin-left: 28px;
+    display: flex;
+    align-items: center;
+}
+
+.hero-info .play-btn {
+    margin-right: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #fff;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.07);
+    transition: var(--transition-delay) var(--transition-effect);
+}
+
+.hero-info .arrow-right {
+    width: 0;
+    height: 0;
+    border-top: calc(var(--side-of-triangle) / 2) solid transparent;
+    border-bottom: calc(var(--side-of-triangle) / 2) solid transparent;
+    border-left: calc(var(--side-of-triangle) * 0.866) solid #ffb900;
+    transition: var(--transition-delay) var(--transition-effect);
+}
+
+.hero-info .watch:hover .play-btn {
+    background-color: #ffb900;
+}
+
+.hero-info .watch:hover .arrow-right {
+    border-left-color: #fff;
+}
+
+.hero-info .watch span {
+    color: #171100;
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+.hero-info .desc-2 {
+    margin-top: 48px;
+    color: #5f5b53;
+    font-size: 1.8rem;
+    font-weight: 400;
+    line-height: 1.67;
+}
+
+.hero-info .desc-3 {
+    margin-top: 10px;
+    display: flex;
+    gap: 28px;
+}
+
+.hero-info .desc-3 p {
+    color: #5f5b53;
+    font-size: 1.8rem;
+    font-weight: 400;
+}
+
+.hero-info .desc-3 strong {
+    padding-right: 14px;
+    color: #171100;
+    font-family: Sen;
+    font-size: 4.4rem;
+    font-weight: 700;
+}
+
+/* ==================== Hero Modal ==================== */
+.hero .modal {
+    padding: 24px;
+    position: absolute;
+    bottom: 48px;
+    right: -100px;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0px 16px 32px 0px rgba(0, 0, 0, 0.05);
+    width: 270px;
+}
+
+.hero .modal .row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.hero .modal .row + .row {
+    margin-top: 14px;
+}
+
+.hero .modal .col {
+    display: flex;
+    flex-direction: column;
+}
+
+.hero .modal span {
+    color: #5f5b53;
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 1.86;
+}
+
+.hero .modal strong {
+    color: #171100;
+    font-size: 1.8rem;
+    font-weight: 600;
+    line-height: 1.67;
+}
+
+/* ==================== Course ==================== */
+.course {
+    padding: 200px 0;
+}
+
+.course .row {
+    display: flex;
+    align-items: center;
+}
+
+.course .row .col .sub-title {
+    color: #171100;
+    font-family: Sen, sans-serif;
+    font-size: 3.8rem;
+    font-weight: 700;
+    line-height: 1.27;
+    letter-spacing: -0.02em;
+}
+
+.course .row .col .desc {
+    margin-top: 16px;
+    width: 458px;
+    color: #5f5b53;
+    font-size: 1.8rem;
+    font-weight: 400;
+    line-height: 1.67;
+}
+
+.course .control-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid #ffb900;
+}
+
+.course .control-btn:hover {
+    background-color: #ffb900;
+}
+
+.course .control-btn:hover .direction {
+    color: #fff;
+}
+
+/* ==================== Course List ==================== */
+.course-list {
+    margin-top: 55px;
+    display: flex;
+    gap: var(--course-item-gap);
+}
+
+.course-item {
+    border-radius: 12px;
+    border: 1px solid #e2dfda;
+    background: #fff;
+    width: calc((100% - (var(--course-item-qty) - 1) * var(--course-item-gap)) / var(--course-item-qty));
+}
+
+.course-item:hover {
+    border: 1px solid transparent;
+    box-shadow: 0px 18px 36px 0px rgba(0, 0, 0, 0.05);
+}
+
+.course-item .image {
+    width: 100%;
+    height: 278px;
+    object-fit: cover;
+    border-radius: 12px 12px 0 0;
+}
+
+.course-item .body {
+    padding: 16px 22px 22px;
+}
+
+.course-item .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.course-item .title {
+    color: #171100;
+    font-size: 1.8rem;
+    font-weight: 600;
+    line-height: 1.67;
+}
+
+.course-item .rate {
+    display: flex;
+    align-items: center;
+}
+
+.course-item .rate .value {
+    margin-top: 3px; /* line height bằng 0 nên có thể dùng margin top đẩy số "4.5" chạy xuống ngang với ngôi sao mà không làm ảnh hưởng tới bố cục chung*/
+    line-height: 0; /* line height bằng 0 là điểm mấu chốt để giải quyết vấn đề số "4.5" bị nhảy lên cao so với ngôi sao, mà ko cần dùng position phức tạp*/
+    margin-left: 6px;
+    color: #fea31b;
+    font-size: 1.6rem;
+    font-weight: 400;
+}
+
+.course-item .desc {
+    margin-top: 6px;
+    color: #5f5b53;
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 1.86;
+}
+
+.course-item .bottom-row {
+    margin-top: 12px;
+}
+
+.course-item .cost {
+    color: #171100;
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+.course-item .book-btn {
+    padding: 18px 0;
+    border-radius: 25px;
+    background: #171100;
+    min-width: 118px;
+    color: #fff;
+    font-size: 1.4rem;
+    font-weight: 600;
+    transition: var(--transition-delay) var(--transition-effect);
+}
+
+.course-item .book-btn:hover {
+    background: #ffb900;
+}
+
+/* ==================== Quote ==================== */
+.quote {
+    padding: 96px 0;
+    background: #2e2100;
+}
+
+.quote .row {
+    display: flex;
+    gap: 271px;
+}
+
+/* ==================== Quote column 1 ==================== */
+
+.quote .col-1 {
+    display: flex;
+    flex-direction: column;
+}
+
+.quote .col-1 img {
+    width: 72px;
+    height: 72px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.quote .col-1 .author {
+    color: #f7f7f7;
+    font-family: Sen, sans-serif;
+    font-size: 2.4rem;
+    font-weight: 700;
+    line-height: 1.42;
+    white-space: nowrap;
+}
+
+.quote .col-1 .position {
+    color: #bfbcb2;
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 1.86;
+    white-space: nowrap;
+}
+
+.quote .control {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.quote .dot {
+    margin-top: 28px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #634700;
+}
+
+.quote .dot:hover {
+    background: #ffb900;
+}
+/* ==================== Quote column 2 ==================== */
+
+.quote .col-2 {
+    position: relative;
+    display: flex;
+}
+
+.quote-content {
+    padding-top: 28px;
+    width: 740px;
+    color: #fff;
+    font-size: 2.6rem;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1.54;
+}
+
+.quote-icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateX(-100%);
+}
+
+/* ==================== Review ==================== */
+.review {
+    padding: 200px 0;
+}
+
+.review .row {
+    display: flex;
+}
+
+/* ==================== Review Row Top ==================== */
+.review .image-1,
+.review .image-2 {
+    width: 270px;
+    height: 404px;
+    object-fit: cover;
+    border-radius: 16px;
+}
+
+.review .image-1 {
+    margin-top: 34px;
+}
+
+.review .image-2 {
+    margin-right: 130px;
+}
+
+.review img + img {
+    margin-left: 30px;
+}
+
+.review .info {
+    align-self: center;
+}
+
+.review .sub-title {
+    color: #171100;
+    font-family: Sen, sans-serif;
+    font-size: 3.8rem;
+    font-weight: 700;
+    line-height: 1.27;
+    letter-spacing: -0.02em;
+}
+
+.review .desc {
+    margin-top: 16px;
+    color: #5f5b53;
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 1.75;
+}
+
+.review .btn {
+    margin-top: 32px;
+    padding: 17px 0;
+    display: inline-block;
+    min-width: 137px;
+    border-radius: 26px;
+    background: #171100;
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+
+.review .btn:hover {
+    background: #ffb900;
+}
+
+/* ==================== Review Row Bottom ==================== */
+.review .row-bottom {
+    margin-top: 200px;
+}
+
+.review .image-3 {
+    margin-left: 130px;
+    width: 470px;
+    height: 440px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+/* ==================== Blog ==================== */
+.blog {
+    padding: 96px 0;
+    background: #fffcf4;
+}
+
+.blog .row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.blog .sub-title {
+    color: #130606;
+    font-family: Sen, sans-serif;
+    font-size: 3.8rem;
+    font-weight: 700;
+    line-height: 1.26;
+    letter-spacing: -0.02em;
+}
+
+.blog .desc {
+    margin-top: 16px;
+    text-align: center;
+    width: 448px;
+    color: #696262;
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 1.75;
+}
+
+/* ==================== Blog List ==================== */
+.blog-list {
+    margin-top: 55px;
+    display: flex;
+    gap: var(--course-item-gap);
+}
+
+.blog-item {
+    width: calc((100% - (var(--course-item-qty) - 1) * var(--course-item-gap)) / var(--course-item-qty));
+    border-radius: 16px;
+    background: #fff;
+}
+
+.blog-item:hover {
+    box-shadow: 0px 16px 32px 0px rgba(0, 0, 0, 0.05);
+}
+
+.blog .image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 16px 16px 0 0;
+}
+
+.blog .body {
+    padding: 20px 20px 28px 20px;
+}
+
+.blog .date {
+    color: #5f5b53;
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 1.86;
+}
+
+.blog .title {
+    margin-top: 25px;
+    color: #171100;
+    font-size: 1.6rem;
+    font-weight: 600;
+    line-height: 1.75;
+}
+
+.blog .btn {
+    margin-top: 32px;
+    padding: 17px 0;
+    display: inline-block;
+    min-width: 118px;
+    border-radius: 25px;
+    background: #171100;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.blog .btn:hover {
+    background: #ffb900;
+}
+
+.blog .control {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.blog .dot {
+    margin-top: 28px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #634700;
+}
+
+.blog .dot:hover {
+    background: #ffb900;
+}
+
+/* ==================== Footer ==================== */
+.footer {
+    padding: 96px 0 28px;
+    background: #2e2100;
+}
+
+.footer .info {
+    display: flex;
+}
+
+.footer .col-logo {
+    margin-right: 145px;
+}
+
+.footer .desc {
+    margin-top: 18px;
+    width: 267px;
+    color: #bfbcb2;
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 1.86;
+}
+
+.footer .social {
+    margin-top: 18px;
+    display: flex;
+    gap: 18px;
+}
+
+/* ==================== Info Column ==================== */
+.footer .info {
+    position: relative;
+    width: 100%;
+}
+
+.footer .title {
+    position: relative;
+    color: #fff;
+    font-size: 1.6rem;
+    font-weight: 600;
+    line-height: 1.75;
+}
+
+.footer .title::after {
+    position: absolute;
+    left: 0;
+    bottom: -14px;
+    display: inline-block;
+    content: "";
+    width: 130px;
+    height: 1px;
+    background: #59554b;
+}
+
+.footer ul {
+    margin-top: 43px;
+}
+
+.footer li {
+    margin-top: 12px;
+}
+
+.footer li a {
+    color: #bfbcb2;
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 1.86;
+    /* white-space: nowrap; */
+}
+
+/* .footer ul:last-child {
+    align-self: flex end;
+} */
+
+.footer p {
+    color: #bfbcb2;
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 1.86;
+}
+
+.footer .location {
+    margin-top: 43px;
+}
+
+.footer .email,
+.phone {
+    margin-top: 12px;
+}
+
+.footer .col-address {
+    margin-left: auto;
+    width: 231px;
+}
+
+.footer .col-support {
+    margin-left: 178px;
+}
+
+.footer .col-address strong {
+    color: #fff;
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.86;
+}
+
+.footer .info::after {
+    position: absolute;
+    left: 0;
+    bottom: -38px;
+    display: inline-block;
+    content: "";
+    width: 1170px;
+    height: 1px;
+    background: #59554b;
+}
+
+.footer .copyright {
+    margin-top: 67px;
+    color: #807d74;
+    text-align: center;
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 1.86;
 }
