@@ -8,4 +8,64 @@ html {
 
 body {
     font-size: 1.6rem;
+    font-family: Poppins, sans-serif;
+}
+
+/* ==================== Common ==================== */
+.content {
+    width: 1170px;
+    margin: 0 auto;
+}
+
+.btn {
+    background: #171100;
+    color: #fff;
+    text-align: center;
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* ==================== Header ==================== */
+.header {
+    position: sticky;
+    z-index: 1;
+    top: -26px;
+    padding-top: 26px;
+    width: 100%;
+    background: #fffcf4;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.signUp-btn {
+    margin-left: auto;
+    padding: 17px 0;
+    border-radius: 24.5px;
+    min-width: 144px;
+}
+
+.navigation {
+    margin-left: 512px;
+    display: flex;
+    align-items: center;
+    gap: 42px;
+}
+
+.navigation-item {
+    color: #5f5b53;
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 1.75;
+}
+
+.navigation-item:hover {
+    text-decoration: underline;
 }
