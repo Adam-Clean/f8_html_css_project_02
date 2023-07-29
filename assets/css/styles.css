@@ -17,6 +17,8 @@ html {
 body {
     font-size: 1.6rem;
     font-family: Poppins, sans-serif;
+    overflow-y: scroll;
+    scroll-behavior: smooth !important;
 }
 
 /* ==================== Common ==================== */
@@ -75,13 +77,14 @@ a {
 }
 
 .navigation {
-    margin-left: 512px;
+    margin-left: auto;
+    margin-right: 49px;
     display: flex;
     align-items: center;
-    gap: 42px;
 }
 
 .navigation-item {
+    padding: 8px 21px;
     color: #5f5b53;
     font-size: 1.6rem;
     font-weight: 400;
@@ -89,11 +92,32 @@ a {
 }
 
 .navigation-item:hover {
-    text-decoration: underline;
+    text-shadow: 1px 0 0 currentColor;
+}
+
+.active {
+    position: relative;
+    color: #171100;
+    font-weight: 600;
+}
+
+.active::after {
+    position: absolute;
+    left: 21px;
+    bottom: 9px;
+    display: inline-block;
+    content: "";
+    height: 2px;
+    width: 12px;
+    border-radius: 999px;
+    background: currentColor;
+}
+
+.active:hover {
+    text-shadow: none;
 }
 
 .signUp-btn {
-    margin-left: auto;
     padding: 17px 0;
     border-radius: 24.5px;
     min-width: 144px;
@@ -181,6 +205,9 @@ a {
     margin-left: 28px;
     display: flex;
     align-items: center;
+    border: none;
+    background: transparent;
+    cursor: pointer;
 }
 
 .hero-info .play-btn {
@@ -249,25 +276,54 @@ a {
 
 /* ==================== Hero Modal ==================== */
 .hero .modal {
-    padding: 24px;
     position: absolute;
     bottom: 48px;
     right: -100px;
     border-radius: 12px;
     background: #fff;
     box-shadow: 0px 16px 32px 0px rgba(0, 0, 0, 0.05);
-    width: 270px;
 }
 
 .hero .modal .row {
+    padding: 16px;
+    border-radius: 12px;
     display: flex;
+    width: 270px;
+    background: #fff;
     align-items: center;
     gap: 16px;
+    transition: var(--transition-delay) var(--transition-effect);
+    cursor: pointer;
 }
 
-.hero .modal .row + .row {
-    margin-top: 14px;
+.hero .modal .row {
 }
+
+.hero .modal .row.design:hover {
+    background-color: #fbab7e;
+    background-image: linear-gradient(62deg, #fbab7e 0%, #f7ce68 100%);
+}
+
+.hero .modal .row.development:hover {
+    background-color: #8ec5fc;
+    background-image: linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%);
+}
+
+.hero .modal .row.marketing:hover {
+    background-color: #74ebd5;
+    background-image: linear-gradient(90deg, #74ebd5 0%, #9face6 100%);
+}
+
+/* .hero .modal .row + .row::before {
+    position: absolute;
+    top: -16px;
+    left: -16px;
+    display: inline-block;
+    content: "";
+    width: 270px;
+    height: 1px;
+    background: #e2dfda;
+} */
 
 .hero .modal .col {
     display: flex;
@@ -296,6 +352,7 @@ a {
 .course .row {
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
 .course .row .col .sub-title {
@@ -316,7 +373,13 @@ a {
     line-height: 1.67;
 }
 
-.course .control-btn {
+.course .control-row {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.course .control {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -324,14 +387,15 @@ a {
     height: 40px;
     border-radius: 50%;
     border: 1px solid #ffb900;
+    color: #ffb900;
+    background: #fff;
+    transition: var(--transition-delay) var(--transition-effect);
 }
 
-.course .control-btn:hover {
-    background-color: #ffb900;
-}
-
-.course .control-btn:hover .direction {
+.course .control:hover {
     color: #fff;
+    background-color: #ffb900;
+    cursor: pointer;
 }
 
 /* ==================== Course List ==================== */
@@ -433,6 +497,7 @@ a {
 .quote .row {
     display: flex;
     gap: 271px;
+    align-items: center;
 }
 
 /* ==================== Quote column 1 ==================== */
@@ -500,11 +565,18 @@ a {
     line-height: 1.54;
 }
 
-.quote-icon {
+.quote-icon-left {
     position: absolute;
     top: 0;
     left: 0;
     transform: translateX(-100%);
+}
+
+.quote-icon-right {
+    position: absolute;
+    bottom: 0;
+    left: 525px;
+    transform: rotateX(180deg) rotateY(180deg) translateY(-100%);
 }
 
 /* ==================== Review ==================== */
@@ -832,7 +904,7 @@ a {
     bottom: -38px;
     display: inline-block;
     content: "";
-    width: 1170px;
+    width: 100%;
     height: 1px;
     background: #59554b;
 }
